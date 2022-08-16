@@ -1,22 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../input_login/input_login.dart';
+import 'package:flutter_app/mvvm/view/input_login_screen/input_login.dart';
 import 'component/button.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginState extends State<Login> {
-  // @override
-  // void dispose() {
-  //
-  //   super.dispose();
-  // }
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -24,18 +18,18 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             width: size.width,
             height: size.height,
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [
-                      Colors.blueAccent.withOpacity(0.5),
-                      Colors.blue.withOpacity(0.5),
-                      Colors.blue.withOpacity(0.3),
-                    ],
-                    begin: Alignment.topCenter,
-                    stops: const [0.0, 0.3, 0.9]),
+              gradient: LinearGradient(
+                  colors: [
+                    Colors.blueAccent.withOpacity(0.5),
+                    Colors.blue.withOpacity(0.5),
+                    Colors.blue.withOpacity(0.3),
+                  ],
+                  begin: Alignment.topCenter,
+                  stops: const [0.0, 0.3, 0.9]),
             ),
             child: body()),
       ),
@@ -59,12 +53,13 @@ class _LoginState extends State<Login> {
               ),
               buttonCustom(
                   textBtn: 'L  O  G  I  N',
-                  onTap: (){
-                    Navigator.push(context,MaterialPageRoute(builder:
-                    (context) => InPutLogin(),));
-
-                  }
-              ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InPutLoginPage(),
+                        ));
+                  }),
               const SizedBox(
                 height: 15,
               ),
