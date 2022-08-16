@@ -28,7 +28,7 @@ class _TextFormFieldCustomState extends State<TextFormFieldCustom> {
         BoxShadow(
           color: Colors.white,
           blurRadius: 10,
-          offset: Offset(0, 5), // Shadow position
+          offset: Offset(0, 2), // Shadow position
         ),
       ],),
       height: 60,
@@ -42,7 +42,7 @@ class _TextFormFieldCustomState extends State<TextFormFieldCustom> {
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
             borderSide: const BorderSide(
-              color: Colors.white,
+              color: Colors.blue,
             ),
           ),
           enabledBorder: OutlineInputBorder(

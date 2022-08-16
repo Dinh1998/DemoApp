@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/constant/theme.dart';
-import 'package:flutter_app/mvvm/view/home_screen/home_screen.dart';
-import 'package:flutter_app/mvvm/view/input_login_screen/widget/textformfield.dart';
 
-import 'package:flutter_app/mvvm/view/login_screen/component/button.dart';
+import 'package:flutter_app/mvvm/view/login_screen/Login.dart';
 
-class InPutSignUpPage extends StatefulWidget {
-  const InPutSignUpPage({Key? key}) : super(key: key);
+import 'package:flutter_app/mvvm/view/widget/button.dart';
+import 'package:flutter_app/mvvm/view/widget/textformfield.dart';
+
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<InPutSignUpPage> createState() => _InPutSignUpPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _InPutSignUpPageState extends State<InPutSignUpPage> {
+class _SignUpPageState extends State<SignUpPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   @override
@@ -35,9 +36,9 @@ class _InPutSignUpPageState extends State<InPutSignUpPage> {
                     children: <Widget>[
                       // Stroked text as border.
                       Text(
-                        'WELCOME BACK ',
+                        'WELCOME NEW MEMBER ! ',
                         style: TextStyle(
-                          fontSize: 80,
+                          fontSize: 60,
                           foreground: Paint()
                             ..style = PaintingStyle.stroke
                             ..strokeWidth = 2
@@ -46,9 +47,9 @@ class _InPutSignUpPageState extends State<InPutSignUpPage> {
                       ),
                       // Solid text as fill.
                       const Text(
-                        'WELCOME BACK ',
+                        'WELCOME NEW MEMBER ! ',
                         style: TextStyle(
-                          fontSize: 80,
+                          fontSize: 60,
                           color: Colors.blue,
                         ),
                       ),
@@ -66,18 +67,24 @@ class _InPutSignUpPageState extends State<InPutSignUpPage> {
               TextFormFieldCustom(
                   controller: passwordController, labelText: "Password"),
               const SizedBox(
+                height: 15,
+              ),
+              TextFormFieldCustom(
+                  controller: passwordController, labelText: "Confirm Password"),
+              const SizedBox(
                 height: 30,
               ),
-              buttonCustom(textBtn: 'S  I  G  N  U  P', onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage(),));
+              buttonCustom(textBtn: 'S  I  G  N    U  P', onTap: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage(),));
               }),
               const SizedBox(
                 height: 30,
               ),
+
               RichText(
-                text: const TextSpan(text: 'Forget password ? ',style: TextStyle(fontSize: 17,color: ThemeApp.blueApp),
+                text: const TextSpan(text: 'You have account ? ',style: TextStyle(fontSize: 17,color: ThemeApp.blueApp),
                     children: [
-                      TextSpan(text: ' Click here !',style: ThemeApp.textStyleSubNormal),
+                      TextSpan(text: ' Login  !',style: ThemeApp.textStyleSubNormal),
                     ]),
               )
             ],

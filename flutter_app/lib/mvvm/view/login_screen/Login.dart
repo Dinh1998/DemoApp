@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/mvvm/view/input_login_screen/input_login.dart';
-import 'component/button.dart';
+import 'package:flutter_app/mvvm/view/sign_up_screen/sign_up_screen.dart';
+import '../widget/button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               Text(
-                'W  E  L  L  C  O  M  E',
+                'W  E   L  C  O  M  E',
                 style: TextStyle(color: Colors.blue.shade800, fontSize: 26),
               ),
               const SizedBox(
@@ -57,13 +58,15 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => InPutLoginPage(),
+                          builder: (context) => const InPutLoginPage(),
                         ));
                   }),
               const SizedBox(
                 height: 15,
               ),
-              buttonCustom(textBtn: 'S  I  G  N  U  P', onTap: () {}),
+              buttonCustom(textBtn: 'S  I  G  N   U  P', onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder:  (context) => const SignUpPage(),));
+              }),
               const SizedBox(
                 height: 50,
               ),

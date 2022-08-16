@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_app/mvvm/view/login_screen/Login.dart';
 import 'package:flutter_app/mvvm/view/main_page.dart';
 
 void main() async {

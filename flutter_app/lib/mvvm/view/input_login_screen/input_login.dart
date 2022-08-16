@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/constant/theme.dart';
-import 'package:flutter_app/mvvm/view/home_screen/home_screen.dart';
-import 'package:flutter_app/mvvm/view/input_login_screen/widget/textformfield.dart';
+import 'package:flutter_app/mvvm/view/forget_password_screen/forget_password.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:flutter_app/mvvm/view/login_screen/component/button.dart';
+import 'package:flutter_app/mvvm/view/widget/button.dart';
+import 'package:flutter_app/mvvm/view/main_page.dart';
+import 'package:flutter_app/mvvm/view/widget/textformfield.dart';
 
 class InPutLoginPage extends StatefulWidget {
   const InPutLoginPage({Key? key}) : super(key: key);
@@ -24,7 +26,9 @@ class _InPutLoginPageState extends State<InPutLoginPage> {
   }
   @override
   void dispose(){
-
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
   @override
   Widget build(BuildContext context) {
@@ -80,16 +84,21 @@ class _InPutLoginPageState extends State<InPutLoginPage> {
               ),
               buttonCustom(textBtn: 'S  I  G  N  I  N', onTap: () {
                 signIn();
-              //  Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage(),));
+                Navigator.push(context,MaterialPageRoute(builder: (context) => MainPage(),));
               }),
               const SizedBox(
                 height: 30,
               ),
-              RichText(
-                text: const TextSpan(text: 'Forget password ? ',style: TextStyle(fontSize: 17,color: ThemeApp.blueApp),
-                    children: [
-                  TextSpan(text: ' Click here !',style: ThemeApp.textStyleSubNormal),
-                ]),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgetPasswordPage(),));
+                },
+                child: RichText(
+                  text: const TextSpan(text: 'Forget password ? ',style: TextStyle(fontSize: 17,color: ThemeApp.blueApp),
+                      children: [
+                    TextSpan(text: ' Click here !',style: ThemeApp.textStyleSubNormal),
+                  ]),
+                ),
               )
             ],
           ),
