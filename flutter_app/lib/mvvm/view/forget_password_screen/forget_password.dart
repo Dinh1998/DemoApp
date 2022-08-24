@@ -33,7 +33,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
     return Column(
       children: [
             //color: Colors.red,
-         
+
                 Text(
                   'Input your email ',
                   style: TextStyle(color: Colors.blue.shade800, fontSize: 26),

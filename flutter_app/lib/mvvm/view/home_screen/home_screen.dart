@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/mvvm/view/login_screen/Login.dart';
+import 'package:flutter_app/mvvm/view/home_scroll/home_scroll.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,14 +15,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
         tooltip: 'Show Snackbar',
         onPressed: () {
-          FirebaseAuth.instance.signOut();
-         //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
+          //FirebaseAuth.instance.signOut();
+         Navigator.push(context, MaterialPageRoute(builder: (context) => const ScrollTapView(),));
         },
       ),
 
