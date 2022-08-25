@@ -13,7 +13,6 @@ class _ScrollTapViewState extends State<ScrollTapView> {
     GlobalKey(),
     GlobalKey(),
     GlobalKey(),
-
   ];
   List<String> nameTittle = [
     'UP',
@@ -21,7 +20,6 @@ class _ScrollTapViewState extends State<ScrollTapView> {
     'DOWN',
     'OTHER',
     'OTHER 1',
-
   ];
   late ScrollController scrollController;
   late RenderBox box;

@@ -31,7 +31,7 @@ class _TextFormFieldCustomState extends State<TextFormFieldCustom> {
           offset: Offset(0, 2), // Shadow position
         ),
       ],),
-      height: 60,
+      height: 50,
       child: TextFormField(
         controller: widget.controller,
         style: const TextStyle(color: Colors.red),

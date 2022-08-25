@@ -46,27 +46,33 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               Text(
-                'W  E   L  C  O  M  E',
+                'W  E  L  C  O  M  E',
                 style: TextStyle(color: Colors.blue.shade800, fontSize: 26),
               ),
               const SizedBox(
                 height: 200,
               ),
-              buttonCustom(
-                  textBtn: 'L  O  G  I  N',
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const InPutLoginPage(),
-                        ));
-                  }),
+              SizedBox(
+                height: 40,
+                child: buttonCustom(
+                    textBtn: 'L O G  I N',
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const InPutLoginPage(),
+                          ));
+                    }),
+              ),
               const SizedBox(
                 height: 15,
               ),
-              buttonCustom(textBtn: 'S  I  G  N   U  P', onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder:  (context) => const SignUpPage(),));
-              }),
+              SizedBox(
+                height: 40,
+                child: buttonCustom(textBtn: 'S I G N   U P', onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder:  (context) => const SignUpPage(),));
+                }),
+              ),
               const SizedBox(
                 height: 50,
               ),

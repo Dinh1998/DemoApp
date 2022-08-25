@@ -9,18 +9,18 @@ Widget buttonCustom({required String textBtn, required Function onTap}) {
     },
     child: Container(
       alignment: Alignment.center,
-      height: 60,
+      height: 50,
       decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
-              color: Colors.blue,
+              color: Colors.white,
               blurRadius: 10,
-              offset: Offset(0, 4), // Shadow position
+              offset: Offset(0, 0), // Shadow position
             ),
           ],
           color: ThemeApp.blueBold,
           borderRadius: const BorderRadius.all(Radius.circular(30)),
-          border: Border.all(width: 2, color: Colors.blue)),
+          border: Border.all(width: 0, color: Colors.white)),
       child: Text(
         textBtn,
         style: ThemeApp.textStyleButton,
