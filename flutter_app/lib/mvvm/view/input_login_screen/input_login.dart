@@ -16,87 +16,72 @@ class InPutLoginPage extends StatefulWidget {
 }
 
 class _InPutLoginPageState extends State<InPutLoginPage> {
-
-
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  showLoaderDialog(BuildContext context){
-    AlertDialog alert=AlertDialog(
-
-      content:  Row(
+  showLoaderDialog(BuildContext context) {
+    AlertDialog alert = AlertDialog(
+      content: Row(
         children: [
-          CircularProgressIndicator(),
-          Container(margin: EdgeInsets.only(left: 7),child:Text("Loading..." )),
-        ],),
+          const CircularProgressIndicator(),
+          Container(
+              margin: const EdgeInsets.only(left: 7),
+              child: const Text("Loading...")),
+        ],
+      ),
     );
-    showDialog(barrierDismissible: false,
-      context:context,
-      builder:(BuildContext context){
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
         return alert;
-
       },
     );
+    Navigator.of(context).pop(alert);
   }
+
   Future signIn(BuildContext context) async {
-    showLoaderDialog(context);
-    // showDialog(
-    //     context: context,
-    //     builder: (context) => const Center(
-    //         child: SizedBox(
-    //             height: 30, width: 30, child: CircularProgressIndicator())),
-    //     barrierDismissible: false);
-    // Navigator.of(context).pop();
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-
-          email: emailController.text.trim(),
-          password: passwordController.text.trim());
-      if (!mounted) return;
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MainPage(),
-          ));
-    } on FirebaseAuthException catch (e) {
-      showDialog(context: context, builder: (context) =>
-          AlertDialog(
-            title: const Text('E R R O R'),
-            content:  Text(e.message.toString()),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () => Navigator.pop(context, 'Cancel'),
-                child: const Text('Cancel'),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context, 'OK');},
-                child: const Text('OK'),
-              ),
-            ],
-          ),
-
-        );
-    }
-  }
-
-  Future<void> login(BuildContext context) async {
-    // show (push onto route stack) a modal barrier, blocking UI
+    //showLoaderDialog(context);
+    // if (FirebaseAuthException(code: '').message==null) {
     showDialog(
         context: context,
         builder: (context) => const Center(
             child: SizedBox(
                 height: 30, width: 30, child: CircularProgressIndicator())),
         barrierDismissible: false);
+    //}
 
-    // a fake login call using Future.delayed
-    bool loginOK = await Future.delayed(const Duration(seconds: 3), () => false)
-        .timeout(const Duration(seconds: 5), onTimeout: () => false);
+    try {
+      var login = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+      print('Login OK? $login');
+      if (!mounted) return;
 
-    // dispose the dialog modal barrier (pop it from route stack)
-    Navigator.of(context).pop(loginOK);
-
-    // do something with login result
-    print('Login OK? $loginOK');
+      Navigator.of(context).pop(login); //dispose showdialog circularProgress
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MainPage(),
+          ));
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('E R R O R'),
+          content: Text(e.message.toString()),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context, 'OK');
+                Navigator.pop(context);
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   @override

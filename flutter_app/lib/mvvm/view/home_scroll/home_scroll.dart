@@ -30,11 +30,11 @@ class _ScrollTapViewState extends State<ScrollTapView> {
     scrollController.addListener(changeTabs);
     super.initState();
   }
-  @override
-  void dispose(){
-    scrollController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose(){
+  //   scrollController.dispose();
+  //   super.dispose();
+  // }
 
   scrollTo(int index) async {
     scrollController.removeListener(changeTabs);
