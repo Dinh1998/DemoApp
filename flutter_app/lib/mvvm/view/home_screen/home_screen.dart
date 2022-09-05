@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/mvvm/view/home_screen/home_page_chat.dart';
+import 'package:flutter_app/mvvm/view/chat/chat_screen.dart';
+
 import 'package:flutter_app/mvvm/view/home_scroll/home_scroll.dart';
 import 'package:flutter_app/mvvm/view/test.dart';
 import 'package:flutter_app/mvvm/view/widget/button.dart';
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomePageChat(),
+                                builder: (context) => ChatScreen(),
                               ));
                         },
                         textBtn: 'N E X T  P A G E')),
